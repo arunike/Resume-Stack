@@ -1,0 +1,92 @@
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 900px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --font-serif: "Times New Roman", Times, serif;
+}
+
+@theme {
+  --container-3xs: 16rem;
+  /* 256px */
+  --container-2xs: 18rem;
+  /* 288px */
+  --container-xs: 20rem;
+  /* 320px */
+  --container-sm: 24rem;
+  /* 384px */
+  --container-md: 28rem;
+  /* 448px */
+  --container-lg: 32rem;
+  /* 512px */
+  --container-xl: 36rem;
+  /* 576px */
+  --container-2xl: 42rem;
+  /* 672px */
+  --container-3xl: 48rem;
+  /* 768px */
+  --container-4xl: 56rem;
+  /* 896px */
+  --container-5xl: 64rem;
+  /* 1024px */
+  --container-6xl: 72rem;
+  /* 1152px */
+  --container-7xl: 80rem;
+  /* 1280px */
+}
+
+@layer base {
+  :root {
+    font-family: "PingFang SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-size: 0.9375rem;
+    overflow-x: hidden;
+  }
+
+  @media print {
+    @page {
+      margin: 0;
+    }
+  }
+}
+
+@utility widgets-container {
+  padding: 40px;
+  background: white;
+}
+
+@utility form-label {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin-top: 8px;
+}
+
+@utility flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@utility scroll-thin {
+  scrollbar-width: thin;
+}
+
+@utility icon-size {
+  width: 1em;
+  height: 1em;
+}
