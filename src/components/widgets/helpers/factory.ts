@@ -101,7 +101,7 @@ export function createDefaultWidgets(): IWidgetNode[] {
       id: generateWidgetId(),
       data: {
         propsData: {
-          title: 'XX Company',
+          title: 'Company',
           dateRange: '2026/01 - 2026/12',
         },
         styleData: {
@@ -160,7 +160,7 @@ export function createDefaultWidgets(): IWidgetNode[] {
       id: generateWidgetId(),
       data: {
         propsData: {
-          title: 'XX University - Software Engineering',
+          title: 'University - Computer Science',
           dateRange: '2026/01 - 2026/12',
         },
         styleData: {
@@ -253,7 +253,7 @@ export function createWidgetNode(type: WidgetType): IWidgetNode {
         id,
         data: {
           propsData: {
-            title: 'XX Company',
+            title: 'Company',
             dateRange: '2026/01 - 2026/12',
           },
           styleData: {
