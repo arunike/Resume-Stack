@@ -10,12 +10,19 @@
     "build": "tsc && vite build",
     "analyze": "npx vite-bundle-analyzer -c vite.config.ts",
     "preview": "vite preview",
-    "lint": "eslint .",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "preinstall": "nvm use || echo 'nvm not found, skipping version check'"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": "eslint",
-    "*.{js,ts,jsx,tsx,css}": "prettier --write"
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings 0"
+    ],
+    "*.{css,md,json}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "22": "^0.0.0",
