@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { Input } from '#ui/input'
+import { Switch } from '#ui/switch'
 import { Slider } from '#ui/slider'
 import { WIDGET_CONSTRAINTS } from '#widgets/constraints'
 import type { IEducationData } from '#widgets/types'
@@ -37,7 +38,7 @@ export function EducationForm({
                 <div className="form-label mt-2">
                     <span>{t('form.schoolFontSize')}</span>
                 </div>
-                <div className="flex items-center">
+        <div className="flex items-center">
                     <Input
                         className="mr-2 w-32 shrink-0"
                         type="number"
@@ -51,6 +52,15 @@ export function EducationForm({
                         max={WIDGET_CONSTRAINTS.style.fontSize.max}
                         value={[propsData.schoolFontSize || 16]}
                         onValueChange={value => handleChange('schoolFontSize', value[0])}
+                    />
+                </div>
+                <div className="flex items-center justify-between mt-3">
+                    <div className="form-label">
+                        <span>{t('form.isSchoolBold')}</span>
+                    </div>
+                    <Switch
+                        checked={propsData.schoolBold ?? true}
+                        onChange={e => handleChange('schoolBold', e.target.checked)}
                     />
                 </div>
             </div>
@@ -82,6 +92,15 @@ export function EducationForm({
                         onValueChange={value => handleChange('locationFontSize', value[0])}
                     />
                 </div>
+                <div className="flex items-center justify-between mt-3">
+                    <div className="form-label">
+                        <span>{t('form.isLocationBold')}</span>
+                    </div>
+                    <Switch
+                        checked={propsData.locationBold ?? true}
+                        onChange={e => handleChange('locationBold', e.target.checked)}
+                    />
+                </div>
             </div>
             <div>
                 <div className="form-label">
@@ -111,18 +130,27 @@ export function EducationForm({
                         onValueChange={value => handleChange('degreeFontSize', value[0])}
                     />
                 </div>
+                <div className="flex items-center justify-between mt-3">
+                    <div className="form-label">
+                        <span>{t('form.isDegreeBold')}</span>
+                    </div>
+                    <Switch
+                        checked={propsData.degreeBold ?? true}
+                        onChange={e => handleChange('degreeBold', e.target.checked)}
+                    />
+                </div>
             </div>
             <div>
                 <div className="form-label">
-                    <span>{t('form.timeRange')}</span>
+                    <span>{t('form.date')}</span>
                 </div>
                 <Input
-                    value={propsData.dateRange}
-                    onChange={e => handleChange('dateRange', e.target.value)}
-                    placeholder={t('form.enterTimeRange')}
+                    value={propsData.date}
+                    onChange={e => handleChange('date', e.target.value)}
+                    placeholder={t('form.enterDate')}
                 />
                 <div className="form-label mt-2">
-                    <span>{t('form.dateRangeFontSize')}</span>
+                    <span>{t('form.dateFontSize')}</span>
                 </div>
                 <div className="flex items-center">
                     <Input
@@ -130,14 +158,23 @@ export function EducationForm({
                         type="number"
                         min={WIDGET_CONSTRAINTS.style.fontSize.min}
                         max={WIDGET_CONSTRAINTS.style.fontSize.max}
-                        value={propsData.dateRangeFontSize || 12}
-                        onChange={e => handleChange('dateRangeFontSize', Number(e.target.value))}
+                        value={propsData.dateFontSize || 12}
+                        onChange={e => handleChange('dateFontSize', Number(e.target.value))}
                     />
                     <Slider
                         min={WIDGET_CONSTRAINTS.style.fontSize.min}
                         max={WIDGET_CONSTRAINTS.style.fontSize.max}
-                        value={[propsData.dateRangeFontSize || 12]}
-                        onValueChange={value => handleChange('dateRangeFontSize', value[0])}
+                        value={[propsData.dateFontSize || 12]}
+                        onValueChange={value => handleChange('dateFontSize', value[0])}
+                    />
+                </div>
+                <div className="flex items-center justify-between mt-3">
+                    <div className="form-label">
+                        <span>{t('form.isDateBold')}</span>
+                    </div>
+                    <Switch
+                        checked={propsData.dateBold ?? false}
+                        onChange={e => handleChange('dateBold', e.target.checked)}
                     />
                 </div>
             </div>
@@ -167,6 +204,24 @@ export function EducationForm({
                         max={WIDGET_CONSTRAINTS.style.fontSize.max}
                         value={[propsData.relevantCoursesFontSize || 12]}
                         onValueChange={value => handleChange('relevantCoursesFontSize', value[0])}
+                    />
+                </div>
+                <div className="flex items-center justify-between mt-3">
+                    <div className="form-label">
+                        <span>{t('form.isRelevantCoursesLabelBold')}</span>
+                    </div>
+                    <Switch
+                        checked={propsData.relevantCoursesLabelBold ?? true}
+                        onChange={e => handleChange('relevantCoursesLabelBold', e.target.checked)}
+                    />
+                </div>
+                <div className="flex items-center justify-between mt-3">
+                    <div className="form-label">
+                        <span>{t('form.isRelevantCoursesBold')}</span>
+                    </div>
+                    <Switch
+                        checked={propsData.relevantCoursesBold ?? false}
+                        onChange={e => handleChange('relevantCoursesBold', e.target.checked)}
                     />
                 </div>
             </div>

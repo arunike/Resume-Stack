@@ -1,4 +1,5 @@
 import type { ITextContentData } from '#widgets/types'
+import { clsx } from 'clsx'
 
 interface TextContentProps {
   data: ITextContentData['propsData']
@@ -6,7 +7,7 @@ interface TextContentProps {
 }
 
 export function TextContent({ data, isLatex }: TextContentProps) {
-  const { content, date, title, location, titleFontSize = 16, locationFontSize = 12, dateFontSize = 12, contentFontSize = 14 } = data
+  const { content, date, title, location, titleFontSize = 16, locationFontSize = 12, dateFontSize = 12, contentFontSize = 14, titleBold = true, locationBold = true, dateBold = true } = data
 
   return (
     <div className={`relative flex flex-col ${isLatex ? 'font-serif' : ''}`}>
@@ -17,7 +18,7 @@ export function TextContent({ data, isLatex }: TextContentProps) {
         >
           {title ? (
             <h3
-              className="font-bold text-black"
+              className={clsx('text-black', titleBold && 'font-bold')}
               style={{ fontSize: `${titleFontSize}pt` }}
             >
               {title}
@@ -27,7 +28,7 @@ export function TextContent({ data, isLatex }: TextContentProps) {
           )}
           {location && (
             <span
-              className={`text-zinc-900 ${isLatex ? 'italic' : ''}`}
+              className={clsx(`text-zinc-900 ${isLatex ? 'italic' : ''}`, locationBold && 'font-bold')}
               style={{ fontSize: `${locationFontSize}pt` }}
             >
               {location}
@@ -38,7 +39,7 @@ export function TextContent({ data, isLatex }: TextContentProps) {
 
       {date && (
         <div
-          className={`text-zinc-900 ${isLatex ? 'italic' : ''}`}
+          className={clsx(`text-zinc-900 ${isLatex ? 'italic' : ''}`, dateBold && 'font-bold')}
           style={{
             marginBottom: 'var(--date-spacing, 4px)',
             fontSize: `${dateFontSize}pt`,

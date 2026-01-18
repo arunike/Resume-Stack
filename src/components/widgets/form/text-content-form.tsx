@@ -3,10 +3,12 @@ import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Input } from '#ui/input'
+import { Switch } from '#ui/switch'
 import { Slider } from '#ui/slider'
 import type { TiptapRef } from '#tiptap/editor'
 import { TiptapEditor } from '#tiptap/editor'
 import { Button } from '#ui/button'
+import { Collapsible } from '#ui/collapsible'
 import { WIDGET_CONSTRAINTS } from '#widgets/constraints'
 import {
   Dialog,
@@ -58,95 +60,126 @@ export function TextContentForm({
 
   return (
     <div>
-      <div className="mb-4">
-        <div className="form-label">
-          <span>{t('form.title')}</span>
-        </div>
-        <Input
-          value={propsData.title || ''}
-          onChange={e => handleChange('title', e.target.value)}
-          placeholder={t('form.enterTitle')}
-        />
-        <div className="form-label mt-2">
-          <span>{t('form.titleFontSize')}</span>
-        </div>
-        <div className="flex items-center">
-          <Input
-            className="mr-2 w-32 shrink-0"
-            type="number"
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={propsData.titleFontSize || 16}
-            onChange={e => handleChange('titleFontSize', Number(e.target.value))}
-          />
-          <Slider
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={[propsData.titleFontSize || 16]}
-            onValueChange={value => handleChange('titleFontSize', value[0])}
-          />
-        </div>
-      </div>
+      <Collapsible title={t('form.advancedOptions')} className="mt-4 mb-4">
+        <div className="space-y-4">
+          <div>
+            <div className="form-label">
+              <span>{t('form.title')}</span>
+            </div>
+            <Input
+              value={propsData.title}
+              onChange={e => handleChange('title', e.target.value)}
+              placeholder={t('form.enterTitle')}
+            />
+            <div className="form-label mt-2">
+              <span>{t('form.titleFontSize')}</span>
+            </div>
+            <div className="flex items-center">
+              <Input
+                className="mr-2 w-32 shrink-0"
+                type="number"
+                min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                value={propsData.titleFontSize || 16}
+                onChange={e => handleChange('titleFontSize', Number(e.target.value))}
+              />
+              <Slider
+                min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                value={[propsData.titleFontSize || 16]}
+                onValueChange={value => handleChange('titleFontSize', value[0])}
+              />
+            </div>
+            <div className="flex items-center justify-between mt-3">
+              <div className="form-label">
+                <span>{t('form.isTitleBold')}</span>
+              </div>
+              <Switch
+                checked={propsData.titleBold ?? true}
+                onChange={e => handleChange('titleBold', e.target.checked)}
+              />
+            </div>
+          </div>
 
-      <div className="mb-4">
-        <div className="form-label">
-          <span>{t('form.location')}</span>
-        </div>
-        <Input
-          value={propsData.location || ''}
-          onChange={e => handleChange('location', e.target.value)}
-          placeholder={t('form.enterLocation')}
-        />
-        <div className="form-label mt-2">
-          <span>{t('form.locationFontSize')}</span>
-        </div>
-        <div className="flex items-center">
-          <Input
-            className="mr-2 w-32 shrink-0"
-            type="number"
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={propsData.locationFontSize || 12}
-            onChange={e => handleChange('locationFontSize', Number(e.target.value))}
-          />
-          <Slider
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={[propsData.locationFontSize || 12]}
-            onValueChange={value => handleChange('locationFontSize', value[0])}
-          />
-        </div>
-      </div>
+          <div>
+            <div className="form-label">
+              <span>{t('form.location')}</span>
+            </div>
+            <Input
+              value={propsData.location}
+              onChange={e => handleChange('location', e.target.value)}
+              placeholder={t('form.enterLocation')}
+            />
+            <div className="form-label mt-2">
+              <span>{t('form.locationFontSize')}</span>
+            </div>
+            <div className="flex items-center">
+              <Input
+                className="mr-2 w-32 shrink-0"
+                type="number"
+                min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                value={propsData.locationFontSize || 12}
+                onChange={e => handleChange('locationFontSize', Number(e.target.value))}
+              />
+              <Slider
+                min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                value={[propsData.locationFontSize || 12]}
+                onValueChange={value => handleChange('locationFontSize', value[0])}
+              />
+            </div>
+            <div className="flex items-center justify-between mt-3">
+              <div className="form-label">
+                <span>{t('form.isLocationBold')}</span>
+              </div>
+              <Switch
+                checked={propsData.locationBold ?? true}
+                onChange={e => handleChange('locationBold', e.target.checked)}
+              />
+            </div>
+          </div>
 
-      <div className="mb-4">
-        <div className="form-label">
-          <span>{t('form.date')}</span>
+          <div>
+            <div className="form-label">
+              <span>{t('form.date')}</span>
+            </div>
+            <Input
+              value={propsData.date}
+              onChange={e => handleChange('date', e.target.value)}
+              placeholder={t('form.enterDate')}
+            />
+            <div className="form-label mt-2">
+              <span>{t('form.dateFontSize')}</span>
+            </div>
+            <div className="flex items-center">
+              <Input
+                className="mr-2 w-32 shrink-0"
+                type="number"
+                min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                value={propsData.dateFontSize || 12}
+                onChange={e => handleChange('dateFontSize', Number(e.target.value))}
+              />
+              <Slider
+                min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                value={[propsData.dateFontSize || 12]}
+                onValueChange={value => handleChange('dateFontSize', value[0])}
+              />
+            </div>
+            <div className="flex items-center justify-between mt-3">
+              <div className="form-label">
+                <span>{t('form.isDateBold')}</span>
+              </div>
+              <Switch
+                checked={propsData.dateBold ?? true}
+                onChange={e => handleChange('dateBold', e.target.checked)}
+              />
+            </div>
+          </div>
         </div>
-        <Input
-          value={propsData.date || ''}
-          onChange={e => handleChange('date', e.target.value)}
-          placeholder={t('form.enterDate')}
-        />
-        <div className="form-label mt-2">
-          <span>{t('form.dateFontSize')}</span>
-        </div>
-        <div className="flex items-center">
-          <Input
-            className="mr-2 w-32 shrink-0"
-            type="number"
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={propsData.dateFontSize || 12}
-            onChange={e => handleChange('dateFontSize', Number(e.target.value))}
-          />
-          <Slider
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={[propsData.dateFontSize || 12]}
-            onValueChange={value => handleChange('dateFontSize', value[0])}
-          />
-        </div>
-      </div>
+      </Collapsible>
 
       <div>
         <div className="form-label">

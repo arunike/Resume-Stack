@@ -69,6 +69,7 @@ export interface IBasicInfoData {
     linksGroup: [ILinkGroupData, ILinkGroupData, ILinkGroupData]
     nameFontSize?: number
     infoFontSize?: number
+    nameBold?: boolean
   }
 }
 export type ILinkGroupData = ILinkData[]
@@ -82,6 +83,7 @@ export interface ITitleSectionData {
   styleData: IStyleData
   propsData: {
     title: string
+    titleBold?: boolean
   }
 }
 
@@ -89,9 +91,14 @@ export interface IExperienceTimeData {
   styleData: IStyleData
   propsData: {
     title: string
-    dateRange: string
+    date: string
+    location?: string
     titleFontSize?: number
-    dateRangeFontSize?: number
+    dateFontSize?: number
+    locationFontSize?: number
+    titleBold?: boolean
+    dateBold?: boolean
+    locationBold?: boolean
   }
 }
 
@@ -106,6 +113,9 @@ export interface ITextContentData {
     locationFontSize?: number
     dateFontSize?: number
     contentFontSize?: number
+    titleBold?: boolean
+    locationBold?: boolean
+    dateBold?: boolean
   }
 }
 
@@ -117,13 +127,19 @@ export interface IEducationData {
     school: string
     degree: string
     location: string
-    dateRange: string
+    date: string
     relevantCourses?: string
     schoolFontSize?: number
     degreeFontSize?: number
     locationFontSize?: number
-    dateRangeFontSize?: number
+    dateFontSize?: number
     relevantCoursesFontSize?: number
+    schoolBold?: boolean
+    degreeBold?: boolean
+    locationBold?: boolean
+    dateBold?: boolean
+    relevantCoursesLabelBold?: boolean
+    relevantCoursesBold?: boolean
   }
 }
 

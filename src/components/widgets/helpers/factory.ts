@@ -64,14 +64,21 @@ export function createDefaultWidgets(): IWidgetNode[] {
       data: {
         propsData: {
           school: 'University',
-          degree: 'Computer Science',
-          location: '',
-          dateRange: '2026/01 - 2026/12',
+          degree: 'Bachelor of Science in Computer Science',
+          location: 'San Jose, CA',
+          date: 'Dec. 2025 - Jan. 2026',
+          relevantCourses: 'Data Structures, Algorithms, Artificial Intelligence',
           schoolFontSize: 16,
           degreeFontSize: 14,
           locationFontSize: 12,
-          dateRangeFontSize: 12,
+          dateFontSize: 12,
           relevantCoursesFontSize: 12,
+          schoolBold: true,
+          degreeBold: false,
+          locationBold: false,
+          dateBold: false,
+          relevantCoursesLabelBold: true,
+          relevantCoursesBold: false,
         },
         styleData: {
           marginTop: 0,
@@ -110,7 +117,8 @@ export function createDefaultWidgets(): IWidgetNode[] {
       data: {
         propsData: {
           title: 'Company',
-          dateRange: '2026/01 - 2026/12',
+          location: 'San Jose, CA',
+          date: 'Dec. 2025 - Present',
         },
         styleData: {
           marginTop: 0,
@@ -261,7 +269,8 @@ export function createWidgetNode(type: WidgetType): IWidgetNode {
         data: {
           propsData: {
             title: 'Company',
-            dateRange: '2026/01 - 2026/12',
+            location: 'San Jose, CA',
+            date: '2026/01 - 2026/12',
           },
           styleData: {
             marginTop: 0,

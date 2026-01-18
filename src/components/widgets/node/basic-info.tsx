@@ -8,13 +8,13 @@ interface BasicInfoProps {
 }
 
 export function BasicInfo({ data, isLatex }: BasicInfoProps) {
-  const { name, linksGroup, nameFontSize = 24, infoFontSize = 14 } = data
+  const { name, linksGroup, nameFontSize = 24, infoFontSize = 14, nameBold = true } = data
 
   if (isLatex) {
     return (
       <div className="flex flex-col items-center py-2 text-center text-black">
         <h1
-          className="font-bold font-serif leading-none tracking-normal"
+          className={clsx('font-serif leading-none tracking-normal', nameBold && 'font-bold')}
           style={{
             marginBottom: 'var(--title-spacing, 4px)',
             fontSize: `${nameFontSize}pt`,
@@ -57,7 +57,7 @@ export function BasicInfo({ data, isLatex }: BasicInfoProps) {
           className="flex items-end whitespace-nowrap"
           style={{ marginBottom: 'var(--item-spacing, 4px)' }}
         >
-          <span className="mr-3 font-semibold" style={{ fontSize: `${nameFontSize}pt` }}>
+          <span className={clsx('mr-3', nameBold && 'font-semibold')} style={{ fontSize: `${nameFontSize}pt` }}>
             {name}
           </span>
         </div>

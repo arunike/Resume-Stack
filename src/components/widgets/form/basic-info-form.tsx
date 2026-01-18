@@ -1,6 +1,7 @@
 import { produce } from 'immer'
 import { useTranslation } from 'react-i18next'
 
+import { Switch } from '#ui/switch'
 import { Input } from '#ui/input'
 import { Slider } from '#ui/slider'
 import { WIDGET_CONSTRAINTS } from '#widgets/constraints'
@@ -17,7 +18,7 @@ export function BasicInfoForm({
   onChange: (value: PropsData) => void
 }) {
   const { t } = useTranslation()
-  const { name, linksGroup, nameFontSize = 24, infoFontSize = 14 } = propsData
+  const { name, linksGroup, nameFontSize = 24, infoFontSize = 14, nameBold = true } = propsData
 
   function handleChange<K extends keyof PropsData>(name: K, value: PropsData[K]) {
     onChange({
@@ -45,6 +46,15 @@ export function BasicInfoForm({
           placeholder={t('form.enterName')}
           onChange={e => handleChange('name', e.target.value)}
         />
+        <div className="flex items-center justify-between mt-3">
+          <div className="form-label">
+            <span>{t('form.isNameBold')}</span>
+          </div>
+          <Switch
+            checked={nameBold}
+            onChange={e => handleChange('nameBold', e.target.checked)}
+          />
+        </div>
         <div className="form-label mt-2">
           <span>{t('form.nameFontSize')}</span>
         </div>

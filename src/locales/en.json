@@ -27,6 +27,7 @@
     "education": "Education"
   },
   "form": {
+    "advancedOptions": "Advanced Options",
     "title": "Title",
     "titleContent": "Title Content",
     "enterTitle": "Enter title content",
@@ -51,8 +52,6 @@
     "enterLink": "Enter link address",
     "experienceContent": "Experience Content",
     "enterExperience": "Enter experience",
-    "timeRange": "Time Range",
-    "enterTimeRange": "Enter time range",
     "date": "Date",
     "enterDate": "Enter date (e.g. 2023-2024)",
     "imageSize": "Image Size (percentage)",
@@ -79,7 +78,14 @@
     "contentFontSize": "Content Font Size (pt)",
     "schoolFontSize": "School Font Size (pt)",
     "degreeFontSize": "Degree Font Size (pt)",
-    "dateRangeFontSize": "Date Range Font Size (pt)",
-    "relevantCoursesFontSize": "Relevant Courses Font Size (pt)"
+    "relevantCoursesFontSize": "Relevant Courses Font Size (pt)",
+    "isNameBold": "Name Bold",
+    "isTitleBold": "Title Bold",
+    "isSchoolBold": "School Bold",
+    "isDegreeBold": "Degree Bold",
+    "isLocationBold": "Location Bold",
+    "isDateBold": "Date Bold",
+    "isRelevantCoursesLabelBold": "Relevant Courses Label Bold",
+    "isRelevantCoursesBold": "Relevant Courses Bold"
   }
 }

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
+import { Switch } from '#ui/switch'
 import { Input } from '#ui/input'
 import type { ITitleSectionData } from '#widgets/types'
 
@@ -32,6 +33,15 @@ export function TitleSectionForm({
           placeholder={t('form.enterTitle')}
           onChange={e => handleChange('title', e.target.value)}
         />
+        <div className="flex items-center justify-between mt-3">
+          <div className="form-label">
+            <span>{t('form.isTitleBold')}</span>
+          </div>
+          <Switch
+            checked={propsData.titleBold ?? true}
+            onChange={e => handleChange('titleBold', e.target.checked)}
+          />
+        </div>
       </div>
     </div>
   )
