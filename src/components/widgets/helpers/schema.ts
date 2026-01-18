@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 import { linkIconNames } from '#widgets/types'
 
-const linkSchema = z.object({
+export const linkSchema = z.object({
   href: z.string(),
   content: z.string(),
   icon: z.enum(linkIconNames),
@@ -15,9 +15,30 @@ const basicInfoSchema = z.object({
     propsData: z.object({
       name: z.string(),
       linksGroup: z.tuple([
-        z.array(z.object({ href: z.string(), content: z.string(), icon: z.string() })).transform(items => items.filter((item): item is z.infer<typeof linkSchema> => item.icon !== 'cake' && linkIconNames.includes(item.icon as any))),
-        z.array(z.object({ href: z.string(), content: z.string(), icon: z.string() })).transform(items => items.filter((item): item is z.infer<typeof linkSchema> => item.icon !== 'cake' && linkIconNames.includes(item.icon as any))),
-        z.array(z.object({ href: z.string(), content: z.string(), icon: z.string() })).transform(items => items.filter((item): item is z.infer<typeof linkSchema> => item.icon !== 'cake' && linkIconNames.includes(item.icon as any))),
+        z
+          .array(z.object({ href: z.string(), content: z.string(), icon: z.string() }))
+          .transform(items =>
+            items.filter(
+              (item): item is z.infer<typeof linkSchema> =>
+                item.icon !== 'cake' && linkIconNames.includes(item.icon as any),
+            ),
+          ),
+        z
+          .array(z.object({ href: z.string(), content: z.string(), icon: z.string() }))
+          .transform(items =>
+            items.filter(
+              (item): item is z.infer<typeof linkSchema> =>
+                item.icon !== 'cake' && linkIconNames.includes(item.icon as any),
+            ),
+          ),
+        z
+          .array(z.object({ href: z.string(), content: z.string(), icon: z.string() }))
+          .transform(items =>
+            items.filter(
+              (item): item is z.infer<typeof linkSchema> =>
+                item.icon !== 'cake' && linkIconNames.includes(item.icon as any),
+            ),
+          ),
       ]),
       nameFontSize: z.number().optional().default(24),
       infoFontSize: z.number().optional().default(14),
@@ -119,8 +140,6 @@ const textContentSchema = z.object({
     }),
   }),
 })
-
-
 
 const educationSchema = z.object({
   type: z.literal('Education'),

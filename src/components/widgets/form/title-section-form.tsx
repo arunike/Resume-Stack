@@ -33,7 +33,7 @@ export function TitleSectionForm({
           placeholder={t('form.enterTitle')}
           onChange={e => handleChange('title', e.target.value)}
         />
-        <div className="flex items-center justify-between mt-3">
+        <div className="mt-3 flex items-center justify-between">
           <div className="form-label">
             <span>{t('form.isTitleBold')}</span>
           </div>

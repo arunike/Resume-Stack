@@ -54,7 +54,7 @@ export function ExperienceTimeForm({
             onValueChange={value => handleChange('titleFontSize', value[0])}
           />
         </div>
-        <div className="flex items-center justify-between mt-3">
+        <div className="mt-3 flex items-center justify-between">
           <div className="form-label">
             <span>{t('form.isTitleBold')}</span>
           </div>
@@ -93,7 +93,7 @@ export function ExperienceTimeForm({
             onValueChange={value => handleChange('locationFontSize', value[0])}
           />
         </div>
-        <div className="flex items-center justify-between mt-3">
+        <div className="mt-3 flex items-center justify-between">
           <div className="form-label">
             <span>{t('form.isLocationBold')}</span>
           </div>
@@ -132,7 +132,7 @@ export function ExperienceTimeForm({
             onValueChange={value => handleChange('dateFontSize', value[0])}
           />
         </div>
-        <div className="flex items-center justify-between mt-3">
+        <div className="mt-3 flex items-center justify-between">
           <div className="form-label">
             <span>{t('form.isDateBold')}</span>
           </div>

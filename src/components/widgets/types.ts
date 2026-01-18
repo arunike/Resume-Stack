@@ -22,31 +22,30 @@ export interface ITemplate {
 
 export type IWidgetNode =
   | {
-    type: 'BasicInfo'
-    id: string
-    data: IBasicInfoData
-  }
+      type: 'BasicInfo'
+      id: string
+      data: IBasicInfoData
+    }
   | {
-    type: 'TitleSection'
-    id: string
-    data: ITitleSectionData
-  }
+      type: 'TitleSection'
+      id: string
+      data: ITitleSectionData
+    }
   | {
-    type: 'ExperienceTime'
-    id: string
-    data: IExperienceTimeData
-  }
+      type: 'ExperienceTime'
+      id: string
+      data: IExperienceTimeData
+    }
   | {
-    type: 'TextContent'
-    id: string
-    data: ITextContentData
-  }
-
+      type: 'TextContent'
+      id: string
+      data: ITextContentData
+    }
   | {
-    type: 'Education'
-    id: string
-    data: IEducationData
-  }
+      type: 'Education'
+      id: string
+      data: IEducationData
+    }
 
 export interface IStyleData {
   marginTop: number
@@ -118,8 +117,6 @@ export interface ITextContentData {
     dateBold?: boolean
   }
 }
-
-
 
 export interface IEducationData {
   styleData: IStyleData

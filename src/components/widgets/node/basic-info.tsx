@@ -29,7 +29,10 @@ export function BasicInfo({ data, isLatex }: BasicInfoProps) {
         >
           <div className="flex items-center gap-2">
             {linksGroup.flat().map((item, index) => (
-              <span key={index} className="flex items-center">
+              <span
+                key={index}
+                className="flex items-center"
+              >
                 {index > 0 && <span className="mr-4 select-none"></span>}
                 <span className="mr-1.5 flex h-3.5 w-3.5 items-center justify-center text-black">
                   {LinkIconComponent(item.icon)}
@@ -57,7 +60,10 @@ export function BasicInfo({ data, isLatex }: BasicInfoProps) {
           className="flex items-end whitespace-nowrap"
           style={{ marginBottom: 'var(--item-spacing, 4px)' }}
         >
-          <span className={clsx('mr-3', nameBold && 'font-semibold')} style={{ fontSize: `${nameFontSize}pt` }}>
+          <span
+            className={clsx('mr-3', nameBold && 'font-semibold')}
+            style={{ fontSize: `${nameFontSize}pt` }}
+          >
             {name}
           </span>
         </div>

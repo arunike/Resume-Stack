@@ -34,7 +34,6 @@ export function BasicInfoForm({
     handleChange('linksGroup', nextState)
   }
 
-
   return (
     <div>
       <div>
@@ -46,7 +45,7 @@ export function BasicInfoForm({
           placeholder={t('form.enterName')}
           onChange={e => handleChange('name', e.target.value)}
         />
-        <div className="flex items-center justify-between mt-3">
+        <div className="mt-3 flex items-center justify-between">
           <div className="form-label">
             <span>{t('form.isNameBold')}</span>
           </div>
@@ -83,7 +82,7 @@ export function BasicInfoForm({
         <div className="form-label mt-2">
           <span>{t('form.infoFontSize')}</span>
         </div>
-        <div className="flex items-center mb-4">
+        <div className="mb-4 flex items-center">
           <Input
             className="mr-2 w-32 shrink-0"
             type="number"

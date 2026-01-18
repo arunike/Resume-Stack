@@ -31,16 +31,41 @@ export function DraggableNode({ item, isActive }: { item: IWidgetNode; isActive:
   function WidgetRenderComponent() {
     switch (item.type) {
       case 'BasicInfo':
-        return <BasicInfo data={item.data.propsData} isLatex={true} />
+        return (
+          <BasicInfo
+            data={item.data.propsData}
+            isLatex={true}
+          />
+        )
       case 'TitleSection':
-        return <TitleSection data={item.data.propsData} isLatex={true} />
+        return (
+          <TitleSection
+            data={item.data.propsData}
+            isLatex={true}
+          />
+        )
       case 'ExperienceTime':
-        return <ExperienceTime data={item.data.propsData} isLatex={true} />
+        return (
+          <ExperienceTime
+            data={item.data.propsData}
+            isLatex={true}
+          />
+        )
       case 'TextContent':
-        return <TextContent data={item.data.propsData} isLatex={true} />
+        return (
+          <TextContent
+            data={item.data.propsData}
+            isLatex={true}
+          />
+        )
 
       case 'Education':
-        return <Education data={item.data.propsData} isLatex={true} />
+        return (
+          <Education
+            data={item.data.propsData}
+            isLatex={true}
+          />
+        )
     }
   }
 

@@ -13,9 +13,7 @@ export function createDefaultWidgets(): IWidgetNode[] {
         propsData: {
           name: 'Richie Zhou',
           linksGroup: [
-            [
-              { href: '', content: '(123) 456-7890', icon: 'phone' },
-            ],
+            [{ href: '', content: '(123) 456-7890', icon: 'phone' }],
             [
               { href: 'https://github.com/arunike', content: 'github.com/arunike', icon: 'github' },
               {
@@ -138,7 +136,8 @@ export function createDefaultWidgets(): IWidgetNode[] {
       id: generateWidgetId(),
       data: {
         propsData: {
-          content: '<ul><li><p>Responsible for the full development process from requirement analysis to frontend architecture design, feature development, and performance optimization.</p></li><li><p>Consistently collaborated with product, design, and backend teams to promote agile development processes and implement CI/CD toolchains, ensuring high-quality delivery.</p></li><li><p>Successfully optimized the payment process page through in-depth research on user experience and frontend performance, improving user conversion and payment success rates.</p></li></ul>',
+          content:
+            '<ul><li><p>Responsible for the full development process from requirement analysis to frontend architecture design, feature development, and performance optimization.</p></li><li><p>Consistently collaborated with product, design, and backend teams to promote agile development processes and implement CI/CD toolchains, ensuring high-quality delivery.</p></li><li><p>Successfully optimized the payment process page through in-depth research on user experience and frontend performance, improving user conversion and payment success rates.</p></li></ul>',
         },
         styleData: {
           marginTop: 0,
@@ -176,7 +175,8 @@ export function createDefaultWidgets(): IWidgetNode[] {
       id: generateWidgetId(),
       data: {
         propsData: {
-          content: '<ul><li><p>Proficient in <code>JavaScript</code>, <code>TypeScript</code>;</p></li><li><p>Experienced with <code>Vue</code>, <code>React</code> frontend development and understanding of core principles;</p></li><li><p>Skilled in using <code>Vite</code>, <code>Webpack</code> and other build tools;</p></li><li><p>Proficient in backend development with <code>NodeJS</code>, <code>MySQL</code>, <code>Redis</code>;</p></li></ul>',
+          content:
+            '<ul><li><p>Proficient in <code>JavaScript</code>, <code>TypeScript</code>;</p></li><li><p>Experienced with <code>Vue</code>, <code>React</code> frontend development and understanding of core principles;</p></li><li><p>Skilled in using <code>Vite</code>, <code>Webpack</code> and other build tools;</p></li><li><p>Proficient in backend development with <code>NodeJS</code>, <code>MySQL</code>, <code>Redis</code>;</p></li></ul>',
         },
         styleData: {
           marginTop: 0,
@@ -291,7 +291,8 @@ export function createWidgetNode(type: WidgetType): IWidgetNode {
         id,
         data: {
           propsData: {
-            content: '<ul><li><p>Responsible for the full development process from requirement analysis to frontend architecture design, feature development, and performance optimization.</p></li><li><p>Consistently collaborated with product, design, and backend teams to promote agile development processes and implement CI/CD toolchains, ensuring high-quality delivery.</p></li><li><p>Successfully optimized the payment process page through in-depth research on user experience and frontend performance, improving user conversion and payment success rates.</p></li></ul>',
+            content:
+              '<ul><li><p>Responsible for the full development process from requirement analysis to frontend architecture design, feature development, and performance optimization.</p></li><li><p>Consistently collaborated with product, design, and backend teams to promote agile development processes and implement CI/CD toolchains, ensuring high-quality delivery.</p></li><li><p>Successfully optimized the payment process page through in-depth research on user experience and frontend performance, improving user conversion and payment success rates.</p></li></ul>',
           },
           styleData: {
             marginTop: 0,

@@ -60,7 +60,10 @@ export function TextContentForm({
 
   return (
     <div>
-      <Collapsible title={t('form.advancedOptions')} className="mt-4 mb-4">
+      <Collapsible
+        title={t('form.advancedOptions')}
+        className="mt-4 mb-4"
+      >
         <div className="space-y-4">
           <div>
             <div className="form-label">
@@ -90,7 +93,7 @@ export function TextContentForm({
                 onValueChange={value => handleChange('titleFontSize', value[0])}
               />
             </div>
-            <div className="flex items-center justify-between mt-3">
+            <div className="mt-3 flex items-center justify-between">
               <div className="form-label">
                 <span>{t('form.isTitleBold')}</span>
               </div>
@@ -129,7 +132,7 @@ export function TextContentForm({
                 onValueChange={value => handleChange('locationFontSize', value[0])}
               />
             </div>
-            <div className="flex items-center justify-between mt-3">
+            <div className="mt-3 flex items-center justify-between">
               <div className="form-label">
                 <span>{t('form.isLocationBold')}</span>
               </div>
@@ -168,7 +171,7 @@ export function TextContentForm({
                 onValueChange={value => handleChange('dateFontSize', value[0])}
               />
             </div>
-            <div className="flex items-center justify-between mt-3">
+            <div className="mt-3 flex items-center justify-between">
               <div className="form-label">
                 <span>{t('form.isDateBold')}</span>
               </div>
@@ -188,7 +191,7 @@ export function TextContentForm({
         <div className="form-label mt-2">
           <span>{t('form.contentFontSize')}</span>
         </div>
-        <div className="flex items-center mb-4">
+        <div className="mb-4 flex items-center">
           <Input
             className="mr-2 w-32 shrink-0"
             type="number"

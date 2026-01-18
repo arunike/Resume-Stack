@@ -7,7 +7,19 @@ interface TextContentProps {
 }
 
 export function TextContent({ data, isLatex }: TextContentProps) {
-  const { content, date, title, location, titleFontSize = 16, locationFontSize = 12, dateFontSize = 12, contentFontSize = 14, titleBold = true, locationBold = true, dateBold = true } = data
+  const {
+    content,
+    date,
+    title,
+    location,
+    titleFontSize = 16,
+    locationFontSize = 12,
+    dateFontSize = 12,
+    contentFontSize = 14,
+    titleBold = true,
+    locationBold = true,
+    dateBold = true,
+  } = data
 
   return (
     <div className={`relative flex flex-col ${isLatex ? 'font-serif' : ''}`}>
@@ -28,7 +40,10 @@ export function TextContent({ data, isLatex }: TextContentProps) {
           )}
           {location && (
             <span
-              className={clsx(`text-zinc-900 ${isLatex ? 'italic' : ''}`, locationBold && 'font-bold')}
+              className={clsx(
+                `text-zinc-900 ${isLatex ? 'italic' : ''}`,
+                locationBold && 'font-bold',
+              )}
               style={{ fontSize: `${locationFontSize}pt` }}
             >
               {location}
@@ -50,10 +65,11 @@ export function TextContent({ data, isLatex }: TextContentProps) {
       )}
 
       <div
-        className={`tiptap flex flex-col justify-center ${isLatex
-          ? 'text-[0.9em] [&_p]:mt-0 [&_p]:mb-[var(--paragraph-spacing,0)] [&_ul]:my-0 [&_ul]:!list-disc [&_ul]:!list-outside [&_ul]:!pl-5 [&_li]:mt-0 [&_li]:mb-[var(--list-spacing,0)] [&_p]:!leading-[var(--line-height,1.5)] [&_li]:!leading-[var(--line-height,1.5)]'
-          : ''
-          }`}
+        className={`tiptap flex flex-col justify-center ${
+          isLatex
+            ? 'text-[0.9em] [&_li]:mt-0 [&_li]:mb-[var(--list-spacing,0)] [&_li]:!leading-[var(--line-height,1.5)] [&_p]:mt-0 [&_p]:mb-[var(--paragraph-spacing,0)] [&_p]:!leading-[var(--line-height,1.5)] [&_ul]:my-0 [&_ul]:!list-outside [&_ul]:!list-disc [&_ul]:!pl-5'
+            : ''
+        }`}
         style={{
           lineHeight: 'var(--line-height, 1.5)',
           fontSize: `${contentFontSize}pt`,

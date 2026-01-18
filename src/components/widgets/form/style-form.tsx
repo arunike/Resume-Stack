@@ -7,7 +7,6 @@ import { WIDGET_CONSTRAINTS } from '#widgets/constraints'
 
 interface StyleFormProps {
   widgetType: WidgetType
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   propsData: any
   styleData: IStyleData
   onChange: (styleData: IStyleData) => void
@@ -23,12 +22,16 @@ export function StyleForm({ widgetType, propsData, styleData, onChange }: StyleF
     })
   }
 
-  const hasTitleSpacing = (['Education', 'BasicInfo'].includes(widgetType)) ||
+  const hasTitleSpacing =
+    ['Education', 'BasicInfo'].includes(widgetType) ||
     (['TextContent'].includes(widgetType) && !!propsData?.title)
-  const hasDateSpacing = (['TextContent'].includes(widgetType) && propsData?.date) ||
+  const hasDateSpacing =
+    (['TextContent'].includes(widgetType) && propsData?.date) ||
     (['ExperienceTime', 'Education'].includes(widgetType) && propsData?.dateRange)
 
-  const hasFontSize = !['BasicInfo', 'TextContent', 'ExperienceTime', 'Education'].includes(widgetType)
+  const hasFontSize = !['BasicInfo', 'TextContent', 'ExperienceTime', 'Education'].includes(
+    widgetType,
+  )
 
   const hasParagraphSpacing = ['TextContent'].includes(widgetType)
   const hasListSpacing = ['TextContent', 'BasicInfo'].includes(widgetType)
@@ -263,6 +266,6 @@ export function StyleForm({ widgetType, propsData, styleData, onChange }: StyleF
           </div>
         </li>
       )}
-    </ul >
+    </ul>
   )
 }

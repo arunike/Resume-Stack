@@ -46,16 +46,41 @@ export function PrintPage() {
   function WidgetRenderComponent(item: IWidgetNode) {
     switch (item.type) {
       case 'BasicInfo':
-        return <BasicInfo data={item.data.propsData} isLatex={isLatex} />
+        return (
+          <BasicInfo
+            data={item.data.propsData}
+            isLatex={isLatex}
+          />
+        )
       case 'TitleSection':
-        return <TitleSection data={item.data.propsData} isLatex={isLatex} />
+        return (
+          <TitleSection
+            data={item.data.propsData}
+            isLatex={isLatex}
+          />
+        )
       case 'ExperienceTime':
-        return <ExperienceTime data={item.data.propsData} isLatex={isLatex} />
+        return (
+          <ExperienceTime
+            data={item.data.propsData}
+            isLatex={isLatex}
+          />
+        )
       case 'TextContent':
-        return <TextContent data={item.data.propsData} isLatex={isLatex} />
+        return (
+          <TextContent
+            data={item.data.propsData}
+            isLatex={isLatex}
+          />
+        )
 
       case 'Education':
-        return <Education data={item.data.propsData} isLatex={isLatex} />
+        return (
+          <Education
+            data={item.data.propsData}
+            isLatex={isLatex}
+          />
+        )
     }
   }
 
@@ -88,6 +113,6 @@ export function PrintPage() {
           </li>
         ))}
       </ul>
-    </div >
+    </div>
   )
 }

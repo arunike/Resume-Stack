@@ -24,11 +24,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '#ui/dialog'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '#ui/popover'
+import { Popover, PopoverContent, PopoverTrigger } from '#ui/popover'
 import { Button } from '#ui/button'
 import { Input } from '#ui/input'
 import { generateBasename, widgetsSchema } from '#widgets/helpers'
@@ -112,38 +108,56 @@ export function EditHeader() {
   return (
     <div className="flex h-[64px] items-center justify-between border-b px-6">
       <div className="flex items-center gap-4">
-        <a href="/" className="flex items-center">
-          <img src={LogoImage} alt="Logo" className="h-12 w-auto" />
+        <a
+          href="/"
+          className="flex items-center"
+        >
+          <img
+            src={LogoImage}
+            alt="Logo"
+            className="h-12 w-auto"
+          />
         </a>
       </div>
 
       <div className="flex-center gap-2 md:gap-4">
-        <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+        <Popover
+          open={popoverOpen}
+          onOpenChange={setPopoverOpen}
+        >
           <PopoverTrigger asChild>
-            <Button variant="outline" size="sm" className="gap-2 px-2 md:px-4">
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2 px-2 md:px-4"
+            >
               <FileText className="h-4 w-4" />
               <span className="hidden md:inline">Templates</span>
               <ChevronDown className="h-3 w-3 opacity-50" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-80 p-0" align="start">
-            <div className="p-4 border-b">
-              <h4 className="font-medium leading-none mb-2">Saved Templates</h4>
-              <p className="text-sm text-muted-foreground">
-                Manage your resume versions localy.
-              </p>
+          <PopoverContent
+            className="w-80 p-0"
+            align="start"
+          >
+            <div className="border-b p-4">
+              <h4 className="mb-2 leading-none font-medium">Saved Templates</h4>
+              <p className="text-muted-foreground text-sm">Manage your resume versions localy.</p>
             </div>
 
             {templates.length > 0 ? (
               <div className="max-h-[300px] overflow-y-auto py-2">
-                {templates.map((template) => (
-                  <div key={template.id} className="flex items-center justify-between px-4 py-2 hover:bg-accent group">
+                {templates.map(template => (
+                  <div
+                    key={template.id}
+                    className="hover:bg-accent group flex items-center justify-between px-4 py-2"
+                  >
                     <button
-                      className="flex-1 text-left text-sm truncate mr-2"
+                      className="mr-2 flex-1 truncate text-left text-sm"
                       onClick={() => handleLoadTemplate(template.id)}
                     >
                       {template.name}
-                      <span className="block text-xs text-muted-foreground">
+                      <span className="text-muted-foreground block text-xs">
                         {new Date(template.createdAt).toLocaleDateString()}
                       </span>
                     </button>
@@ -153,18 +167,18 @@ export function EditHeader() {
                       className="h-8 w-8 opacity-0 group-hover:opacity-100"
                       onClick={() => deleteTemplate(template.id)}
                     >
-                      <Trash2 className="h-4 w-4 text-destructive" />
+                      <Trash2 className="text-destructive h-4 w-4" />
                     </Button>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="p-8 text-center text-sm text-muted-foreground">
+              <div className="text-muted-foreground p-8 text-center text-sm">
                 No templates saved yet.
               </div>
             )}
 
-            <div className="p-2 border-t bg-muted/50">
+            <div className="bg-muted/50 border-t p-2">
               <Button
                 variant="default"
                 className="w-full justify-start gap-2"
@@ -180,7 +194,7 @@ export function EditHeader() {
           </PopoverContent>
         </Popover>
 
-        <div className="w-px h-6 bg-border mx-1 md:mx-2" />
+        <div className="bg-border mx-1 h-6 w-px md:mx-2" />
 
         <input
           ref={inputRef}
@@ -206,7 +220,7 @@ export function EditHeader() {
           onClick={handleClickExport}
         >
           <span className="hidden md:inline">{t('common.exportConfig')}</span>
-           <span className="md:hidden">Export</span>
+          <span className="md:hidden">Export</span>
         </Button>
 
         <AlertDialog>
@@ -233,7 +247,7 @@ export function EditHeader() {
         </AlertDialog>
       </div>
 
-      <div className="flex-center gap-2 md:gap-4 hidden sm:flex">
+      <div className="flex-center hidden gap-2 sm:flex md:gap-4">
         <Button
           size="sm"
           onClick={handleClickPrint}
@@ -242,7 +256,10 @@ export function EditHeader() {
         </Button>
       </div>
 
-      <Dialog open={saveDialogOpen} onOpenChange={setSaveDialogOpen}>
+      <Dialog
+        open={saveDialogOpen}
+        onOpenChange={setSaveDialogOpen}
+      >
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Save as Template</DialogTitle>
@@ -254,14 +271,17 @@ export function EditHeader() {
             <Input
               placeholder="e.g. Frontend Developer Resume"
               value={templateName}
-              onChange={(e) => setTemplateName(e.target.value)}
-              onKeyDown={(e) => {
+              onChange={e => setTemplateName(e.target.value)}
+              onKeyDown={e => {
                 if (e.key === 'Enter') handleSaveTemplate()
               }}
             />
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setSaveDialogOpen(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setSaveDialogOpen(false)}
+            >
               Cancel
             </Button>
             <Button onClick={handleSaveTemplate}>Save Template</Button>
