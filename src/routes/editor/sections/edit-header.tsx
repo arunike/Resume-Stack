@@ -117,12 +117,12 @@ export function EditHeader() {
         </a>
       </div>
 
-      <div className="flex-center gap-4">
+      <div className="flex-center gap-2 md:gap-4">
         <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
           <PopoverTrigger asChild>
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button variant="outline" size="sm" className="gap-2 px-2 md:px-4">
               <FileText className="h-4 w-4" />
-              Templates
+              <span className="hidden md:inline">Templates</span>
               <ChevronDown className="h-3 w-3 opacity-50" />
             </Button>
           </PopoverTrigger>
@@ -180,7 +180,7 @@ export function EditHeader() {
           </PopoverContent>
         </Popover>
 
-        <div className="w-px h-6 bg-border mx-2" />
+        <div className="w-px h-6 bg-border mx-1 md:mx-2" />
 
         <input
           ref={inputRef}
@@ -192,17 +192,21 @@ export function EditHeader() {
         <Button
           variant="outline"
           size="sm"
+          className="px-2 md:px-4"
           onClick={() => inputRef.current?.click()}
         >
-          {t('common.importConfig')}
+          <span className="hidden md:inline">{t('common.importConfig')}</span>
+          <span className="md:hidden">Import</span>
         </Button>
 
         <Button
           variant="outline"
           size="sm"
+          className="px-2 md:px-4"
           onClick={handleClickExport}
         >
-          {t('common.exportConfig')}
+          <span className="hidden md:inline">{t('common.exportConfig')}</span>
+           <span className="md:hidden">Export</span>
         </Button>
 
         <AlertDialog>
@@ -210,8 +214,10 @@ export function EditHeader() {
             <Button
               variant="outline"
               size="sm"
+              className="px-2 md:px-4"
             >
-              {t('common.reset')}
+              <span className="hidden md:inline">{t('common.reset')}</span>
+              <span className="md:hidden">Reset</span>
             </Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
@@ -227,7 +233,7 @@ export function EditHeader() {
         </AlertDialog>
       </div>
 
-      <div className="flex-center gap-4">
+      <div className="flex-center gap-2 md:gap-4 hidden sm:flex">
         <Button
           size="sm"
           onClick={handleClickPrint}

@@ -57,7 +57,10 @@
 }
 
 @utility widgets-container {
-  padding: 40px;
+  padding: 16px;
+  @media (min-width: 768px) {
+    padding: 40px;
+  }
   background: white;
 }
 
