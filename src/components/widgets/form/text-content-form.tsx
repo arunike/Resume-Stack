@@ -3,9 +3,11 @@ import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Input } from '#ui/input'
+import { Slider } from '#ui/slider'
 import type { TiptapRef } from '#tiptap/editor'
 import { TiptapEditor } from '#tiptap/editor'
 import { Button } from '#ui/button'
+import { WIDGET_CONSTRAINTS } from '#widgets/constraints'
 import {
   Dialog,
   DialogContent,
@@ -65,6 +67,25 @@ export function TextContentForm({
           onChange={e => handleChange('title', e.target.value)}
           placeholder={t('form.enterTitle')}
         />
+        <div className="form-label mt-2">
+          <span>{t('form.titleFontSize')}</span>
+        </div>
+        <div className="flex items-center">
+          <Input
+            className="mr-2 w-32 shrink-0"
+            type="number"
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={propsData.titleFontSize || 16}
+            onChange={e => handleChange('titleFontSize', Number(e.target.value))}
+          />
+          <Slider
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={[propsData.titleFontSize || 16]}
+            onValueChange={value => handleChange('titleFontSize', value[0])}
+          />
+        </div>
       </div>
 
       <div className="mb-4">
@@ -76,6 +97,25 @@ export function TextContentForm({
           onChange={e => handleChange('location', e.target.value)}
           placeholder={t('form.enterLocation')}
         />
+        <div className="form-label mt-2">
+          <span>{t('form.locationFontSize')}</span>
+        </div>
+        <div className="flex items-center">
+          <Input
+            className="mr-2 w-32 shrink-0"
+            type="number"
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={propsData.locationFontSize || 12}
+            onChange={e => handleChange('locationFontSize', Number(e.target.value))}
+          />
+          <Slider
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={[propsData.locationFontSize || 12]}
+            onValueChange={value => handleChange('locationFontSize', value[0])}
+          />
+        </div>
       </div>
 
       <div className="mb-4">
@@ -87,11 +127,49 @@ export function TextContentForm({
           onChange={e => handleChange('date', e.target.value)}
           placeholder={t('form.enterDate')}
         />
+        <div className="form-label mt-2">
+          <span>{t('form.dateFontSize')}</span>
+        </div>
+        <div className="flex items-center">
+          <Input
+            className="mr-2 w-32 shrink-0"
+            type="number"
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={propsData.dateFontSize || 12}
+            onChange={e => handleChange('dateFontSize', Number(e.target.value))}
+          />
+          <Slider
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={[propsData.dateFontSize || 12]}
+            onValueChange={value => handleChange('dateFontSize', value[0])}
+          />
+        </div>
       </div>
 
       <div>
         <div className="form-label">
           <span>{t('form.textContent')}</span>
+        </div>
+        <div className="form-label mt-2">
+          <span>{t('form.contentFontSize')}</span>
+        </div>
+        <div className="flex items-center mb-4">
+          <Input
+            className="mr-2 w-32 shrink-0"
+            type="number"
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={propsData.contentFontSize || 14}
+            onChange={e => handleChange('contentFontSize', Number(e.target.value))}
+          />
+          <Slider
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={[propsData.contentFontSize || 14]}
+            onValueChange={value => handleChange('contentFontSize', value[0])}
+          />
         </div>
 
         <Dialog

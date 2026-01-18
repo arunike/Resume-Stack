@@ -8,19 +8,25 @@ interface BasicInfoProps {
 }
 
 export function BasicInfo({ data, isLatex }: BasicInfoProps) {
-  const { name, linksGroup } = data
+  const { name, linksGroup, nameFontSize = 24, infoFontSize = 14 } = data
 
   if (isLatex) {
     return (
       <div className="flex flex-col items-center py-2 text-center text-black">
         <h1
-          className="text-[1.875em] font-bold font-serif leading-none tracking-normal"
-          style={{ marginBottom: 'var(--title-spacing, 4px)' }}
+          className="font-bold font-serif leading-none tracking-normal"
+          style={{
+            marginBottom: 'var(--title-spacing, 4px)',
+            fontSize: `${nameFontSize}pt`,
+          }}
         >
           {name}
         </h1>
 
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-[0.875em]">
+        <div
+          className="flex flex-wrap justify-center gap-x-4 gap-y-1"
+          style={{ fontSize: `${infoFontSize}pt` }}
+        >
           <div className="flex items-center gap-2">
             {linksGroup.flat().map((item, index) => (
               <span key={index} className="flex items-center">
@@ -51,9 +57,11 @@ export function BasicInfo({ data, isLatex }: BasicInfoProps) {
           className="flex items-end whitespace-nowrap"
           style={{ marginBottom: 'var(--item-spacing, 4px)' }}
         >
-          <span className="mr-3 text-[1.5em] font-semibold">{name}</span>
+          <span className="mr-3 font-semibold" style={{ fontSize: `${nameFontSize}pt` }}>
+            {name}
+          </span>
         </div>
-        <ul>
+        <ul style={{ fontSize: `${infoFontSize}pt` }}>
           {linksGroup.map((links, groupIndex) => (
             <li key={groupIndex}>
               <ul className="flex flex-wrap items-center @3xl:flex-nowrap">

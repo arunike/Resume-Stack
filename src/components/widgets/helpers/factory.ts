@@ -44,7 +44,7 @@ export function createDefaultWidgets(): IWidgetNode[] {
       type: 'TitleSection',
       id: generateWidgetId(),
       data: {
-        propsData: { title: 'Professional Skills' },
+        propsData: { title: 'Education' },
         styleData: {
           marginTop: 20,
           marginBottom: 12,
@@ -59,11 +59,19 @@ export function createDefaultWidgets(): IWidgetNode[] {
       },
     },
     {
-      type: 'TextContent',
+      type: 'Education',
       id: generateWidgetId(),
       data: {
         propsData: {
-          content: '<ul><li><p>Proficient in <code>JavaScript</code>, <code>TypeScript</code>;</p></li><li><p>Experienced with <code>Vue</code>, <code>React</code> frontend development and understanding of core principles;</p></li><li><p>Skilled in using <code>Vite</code>, <code>Webpack</code> and other build tools;</p></li><li><p>Proficient in backend development with <code>NodeJS</code>, <code>MySQL</code>, <code>Redis</code>;</p></li></ul>',
+          school: 'University',
+          degree: 'Computer Science',
+          location: '',
+          dateRange: '2026/01 - 2026/12',
+          schoolFontSize: 16,
+          degreeFontSize: 14,
+          locationFontSize: 12,
+          dateRangeFontSize: 12,
+          relevantCoursesFontSize: 12,
         },
         styleData: {
           marginTop: 0,
@@ -141,7 +149,7 @@ export function createDefaultWidgets(): IWidgetNode[] {
       type: 'TitleSection',
       id: generateWidgetId(),
       data: {
-        propsData: { title: 'Education' },
+        propsData: { title: 'Professional Skills' },
         styleData: {
           marginTop: 20,
           marginBottom: 12,
@@ -156,12 +164,11 @@ export function createDefaultWidgets(): IWidgetNode[] {
       },
     },
     {
-      type: 'ExperienceTime',
+      type: 'TextContent',
       id: generateWidgetId(),
       data: {
         propsData: {
-          title: 'University - Computer Science',
-          dateRange: '2026/01 - 2026/12',
+          content: '<ul><li><p>Proficient in <code>JavaScript</code>, <code>TypeScript</code>;</p></li><li><p>Experienced with <code>Vue</code>, <code>React</code> frontend development and understanding of core principles;</p></li><li><p>Skilled in using <code>Vite</code>, <code>Webpack</code> and other build tools;</p></li><li><p>Proficient in backend development with <code>NodeJS</code>, <code>MySQL</code>, <code>Redis</code>;</p></li></ul>',
         },
         styleData: {
           marginTop: 0,

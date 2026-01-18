@@ -6,7 +6,7 @@ interface TextContentProps {
 }
 
 export function TextContent({ data, isLatex }: TextContentProps) {
-  const { content, date, title, location } = data
+  const { content, date, title, location, titleFontSize = 16, locationFontSize = 12, dateFontSize = 12, contentFontSize = 14 } = data
 
   return (
     <div className={`relative flex flex-col ${isLatex ? 'font-serif' : ''}`}>
@@ -16,12 +16,20 @@ export function TextContent({ data, isLatex }: TextContentProps) {
           style={{ marginBottom: 'var(--title-spacing, 4px)' }}
         >
           {title ? (
-            <h3 className="text-[1em] font-bold text-black">{title}</h3>
+            <h3
+              className="font-bold text-black"
+              style={{ fontSize: `${titleFontSize}pt` }}
+            >
+              {title}
+            </h3>
           ) : (
             <div></div>
           )}
           {location && (
-            <span className={`text-[0.9em] text-zinc-900 ${isLatex ? 'italic' : ''}`}>
+            <span
+              className={`text-zinc-900 ${isLatex ? 'italic' : ''}`}
+              style={{ fontSize: `${locationFontSize}pt` }}
+            >
               {location}
             </span>
           )}
@@ -30,8 +38,11 @@ export function TextContent({ data, isLatex }: TextContentProps) {
 
       {date && (
         <div
-          className={`text-[0.9em] text-zinc-900 ${isLatex ? 'italic' : ''}`}
-          style={{ marginBottom: 'var(--date-spacing, 4px)' }}
+          className={`text-zinc-900 ${isLatex ? 'italic' : ''}`}
+          style={{
+            marginBottom: 'var(--date-spacing, 4px)',
+            fontSize: `${dateFontSize}pt`,
+          }}
         >
           {date}
         </div>
@@ -42,7 +53,10 @@ export function TextContent({ data, isLatex }: TextContentProps) {
           ? 'text-[0.9em] [&_p]:mt-0 [&_p]:mb-[var(--paragraph-spacing,0)] [&_ul]:my-0 [&_ul]:!list-disc [&_ul]:!list-outside [&_ul]:!pl-5 [&_li]:mt-0 [&_li]:mb-[var(--list-spacing,0)] [&_p]:!leading-[var(--line-height,1.5)] [&_li]:!leading-[var(--line-height,1.5)]'
           : ''
           }`}
-        style={{ lineHeight: 'var(--line-height, 1.5)' }}
+        style={{
+          lineHeight: 'var(--line-height, 1.5)',
+          fontSize: `${contentFontSize}pt`,
+        }}
         dangerouslySetInnerHTML={{ __html: content }}
       ></div>
     </div>

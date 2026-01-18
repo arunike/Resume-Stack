@@ -28,6 +28,8 @@ export function StyleForm({ widgetType, propsData, styleData, onChange }: StyleF
   const hasDateSpacing = (['TextContent'].includes(widgetType) && propsData?.date) ||
     (['ExperienceTime', 'Education'].includes(widgetType) && propsData?.dateRange)
 
+  const hasFontSize = !['BasicInfo', 'TextContent', 'ExperienceTime', 'Education'].includes(widgetType)
+
   const hasDividerSpacing = ['TitleSection'].includes(widgetType)
   const hasRelevantCoursesSpacing = widgetType === 'Education' && !!propsData?.relevantCourses
 
@@ -140,27 +142,29 @@ export function StyleForm({ widgetType, propsData, styleData, onChange }: StyleF
           />
         </div>
       </li>
-      <li>
-        <div className="form-label">
-          <span>{t('form.fontSize')}</span>
-        </div>
-        <div className="flex items-center">
-          <Input
-            className="mr-2 w-32 shrink-0"
-            type="number"
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={styleData.fontSize || 11}
-            onChange={e => handleChange('fontSize', Number(e.target.value))}
-          />
-          <Slider
-            min={WIDGET_CONSTRAINTS.style.fontSize.min}
-            max={WIDGET_CONSTRAINTS.style.fontSize.max}
-            value={[styleData.fontSize || 11]}
-            onValueChange={value => handleChange('fontSize', value[0])}
-          />
-        </div>
-      </li>
+      {hasFontSize && (
+        <li>
+          <div className="form-label">
+            <span>{t('form.fontSize')}</span>
+          </div>
+          <div className="flex items-center">
+            <Input
+              className="mr-2 w-32 shrink-0"
+              type="number"
+              min={WIDGET_CONSTRAINTS.style.fontSize.min}
+              max={WIDGET_CONSTRAINTS.style.fontSize.max}
+              value={styleData.fontSize || 11}
+              onChange={e => handleChange('fontSize', Number(e.target.value))}
+            />
+            <Slider
+              min={WIDGET_CONSTRAINTS.style.fontSize.min}
+              max={WIDGET_CONSTRAINTS.style.fontSize.max}
+              value={[styleData.fontSize || 11]}
+              onValueChange={value => handleChange('fontSize', value[0])}
+            />
+          </div>
+        </li>
+      )}
       {hasTitleSpacing && (
         <li>
           <div className="form-label">

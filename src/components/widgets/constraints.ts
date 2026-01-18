@@ -11,6 +11,6 @@ export const WIDGET_CONSTRAINTS = {
     margin: { min: -100, max: 100 },
     lineHeight: { min: 1, max: 3 },
     spacing: { min: -32, max: 32 },
-    fontSize: { min: 8, max: 24 },
+    fontSize: { min: 8, max: 72 },
   },
 } as const

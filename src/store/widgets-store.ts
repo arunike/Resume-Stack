@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 import type { ITemplate, IWidgetNode } from '#widgets/types'
-import { getWidgets } from '#widgets/helpers'
+import { createDefaultWidgets, getWidgets } from '#widgets/helpers'
 import { storageService } from '@/services/storage'
 
 export interface WidgetsState {
@@ -77,7 +77,8 @@ export const useWidgetsStore = create<WidgetsState>()(set => {
       set({ widgets })
     },
     resetWidgets: () => {
-      set({ widgets: [], activeId: null })
+      const widgets = createDefaultWidgets()
+      set({ widgets, activeId: widgets[0].id })
     },
 
     activeId,

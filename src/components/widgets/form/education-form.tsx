@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next'
 
 import { Input } from '#ui/input'
+import { Slider } from '#ui/slider'
+import { WIDGET_CONSTRAINTS } from '#widgets/constraints'
 import type { IEducationData } from '#widgets/types'
 
 type PropsData = IEducationData['propsData']
@@ -32,6 +34,25 @@ export function EducationForm({
                     onChange={e => handleChange('school', e.target.value)}
                     placeholder={t('form.enterSchool')}
                 />
+                <div className="form-label mt-2">
+                    <span>{t('form.schoolFontSize')}</span>
+                </div>
+                <div className="flex items-center">
+                    <Input
+                        className="mr-2 w-32 shrink-0"
+                        type="number"
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={propsData.schoolFontSize || 16}
+                        onChange={e => handleChange('schoolFontSize', Number(e.target.value))}
+                    />
+                    <Slider
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={[propsData.schoolFontSize || 16]}
+                        onValueChange={value => handleChange('schoolFontSize', value[0])}
+                    />
+                </div>
             </div>
             <div>
                 <div className="form-label">
@@ -42,6 +63,25 @@ export function EducationForm({
                     onChange={e => handleChange('location', e.target.value)}
                     placeholder={t('form.enterLocation')}
                 />
+                <div className="form-label mt-2">
+                    <span>{t('form.locationFontSize')}</span>
+                </div>
+                <div className="flex items-center">
+                    <Input
+                        className="mr-2 w-32 shrink-0"
+                        type="number"
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={propsData.locationFontSize || 12}
+                        onChange={e => handleChange('locationFontSize', Number(e.target.value))}
+                    />
+                    <Slider
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={[propsData.locationFontSize || 12]}
+                        onValueChange={value => handleChange('locationFontSize', value[0])}
+                    />
+                </div>
             </div>
             <div>
                 <div className="form-label">
@@ -52,6 +92,25 @@ export function EducationForm({
                     onChange={e => handleChange('degree', e.target.value)}
                     placeholder={t('form.enterDegree')}
                 />
+                <div className="form-label mt-2">
+                    <span>{t('form.degreeFontSize')}</span>
+                </div>
+                <div className="flex items-center">
+                    <Input
+                        className="mr-2 w-32 shrink-0"
+                        type="number"
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={propsData.degreeFontSize || 14}
+                        onChange={e => handleChange('degreeFontSize', Number(e.target.value))}
+                    />
+                    <Slider
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={[propsData.degreeFontSize || 14]}
+                        onValueChange={value => handleChange('degreeFontSize', value[0])}
+                    />
+                </div>
             </div>
             <div>
                 <div className="form-label">
@@ -62,6 +121,25 @@ export function EducationForm({
                     onChange={e => handleChange('dateRange', e.target.value)}
                     placeholder={t('form.enterTimeRange')}
                 />
+                <div className="form-label mt-2">
+                    <span>{t('form.dateRangeFontSize')}</span>
+                </div>
+                <div className="flex items-center">
+                    <Input
+                        className="mr-2 w-32 shrink-0"
+                        type="number"
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={propsData.dateRangeFontSize || 12}
+                        onChange={e => handleChange('dateRangeFontSize', Number(e.target.value))}
+                    />
+                    <Slider
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={[propsData.dateRangeFontSize || 12]}
+                        onValueChange={value => handleChange('dateRangeFontSize', value[0])}
+                    />
+                </div>
             </div>
             <div>
                 <div className="form-label">
@@ -72,6 +150,25 @@ export function EducationForm({
                     onChange={e => handleChange('relevantCourses', e.target.value)}
                     placeholder={t('form.enterRelevantCourses')}
                 />
+                <div className="form-label mt-2">
+                    <span>{t('form.relevantCoursesFontSize')}</span>
+                </div>
+                <div className="flex items-center">
+                    <Input
+                        className="mr-2 w-32 shrink-0"
+                        type="number"
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={propsData.relevantCoursesFontSize || 12}
+                        onChange={e => handleChange('relevantCoursesFontSize', Number(e.target.value))}
+                    />
+                    <Slider
+                        min={WIDGET_CONSTRAINTS.style.fontSize.min}
+                        max={WIDGET_CONSTRAINTS.style.fontSize.max}
+                        value={[propsData.relevantCoursesFontSize || 12]}
+                        onValueChange={value => handleChange('relevantCoursesFontSize', value[0])}
+                    />
+                </div>
             </div>
         </div>
     )

@@ -67,6 +67,8 @@ export interface IBasicInfoData {
   propsData: {
     name: string
     linksGroup: [ILinkGroupData, ILinkGroupData, ILinkGroupData]
+    nameFontSize?: number
+    infoFontSize?: number
   }
 }
 export type ILinkGroupData = ILinkData[]
@@ -88,6 +90,8 @@ export interface IExperienceTimeData {
   propsData: {
     title: string
     dateRange: string
+    titleFontSize?: number
+    dateRangeFontSize?: number
   }
 }
 
@@ -98,6 +102,10 @@ export interface ITextContentData {
     date?: string
     title?: string
     location?: string
+    titleFontSize?: number
+    locationFontSize?: number
+    dateFontSize?: number
+    contentFontSize?: number
   }
 }
 
@@ -111,6 +119,11 @@ export interface IEducationData {
     location: string
     dateRange: string
     relevantCourses?: string
+    schoolFontSize?: number
+    degreeFontSize?: number
+    locationFontSize?: number
+    dateRangeFontSize?: number
+    relevantCoursesFontSize?: number
   }
 }
 

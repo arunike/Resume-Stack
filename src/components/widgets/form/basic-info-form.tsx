@@ -2,6 +2,8 @@ import { produce } from 'immer'
 import { useTranslation } from 'react-i18next'
 
 import { Input } from '#ui/input'
+import { Slider } from '#ui/slider'
+import { WIDGET_CONSTRAINTS } from '#widgets/constraints'
 import { ContactsForm } from '#widgets/form/contacts/contacts-form'
 import type { IBasicInfoData, ILinkData } from '#widgets/types'
 
@@ -15,7 +17,7 @@ export function BasicInfoForm({
   onChange: (value: PropsData) => void
 }) {
   const { t } = useTranslation()
-  const { name, linksGroup } = propsData
+  const { name, linksGroup, nameFontSize = 24, infoFontSize = 14 } = propsData
 
   function handleChange<K extends keyof PropsData>(name: K, value: PropsData[K]) {
     onChange({
@@ -43,11 +45,49 @@ export function BasicInfoForm({
           placeholder={t('form.enterName')}
           onChange={e => handleChange('name', e.target.value)}
         />
+        <div className="form-label mt-2">
+          <span>{t('form.nameFontSize')}</span>
+        </div>
+        <div className="flex items-center">
+          <Input
+            className="mr-2 w-32 shrink-0"
+            type="number"
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={nameFontSize}
+            onChange={e => handleChange('nameFontSize', Number(e.target.value))}
+          />
+          <Slider
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={[nameFontSize]}
+            onValueChange={value => handleChange('nameFontSize', value[0])}
+          />
+        </div>
       </div>
 
       <div>
         <div className="form-label">
           <span>{t('form.contactInfo1')}</span>
+        </div>
+        <div className="form-label mt-2">
+          <span>{t('form.infoFontSize')}</span>
+        </div>
+        <div className="flex items-center mb-4">
+          <Input
+            className="mr-2 w-32 shrink-0"
+            type="number"
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={infoFontSize}
+            onChange={e => handleChange('infoFontSize', Number(e.target.value))}
+          />
+          <Slider
+            min={WIDGET_CONSTRAINTS.style.fontSize.min}
+            max={WIDGET_CONSTRAINTS.style.fontSize.max}
+            value={[infoFontSize]}
+            onValueChange={value => handleChange('infoFontSize', value[0])}
+          />
         </div>
         <ContactsForm
           data={linksGroup[0]}
